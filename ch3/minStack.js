@@ -22,6 +22,10 @@ class minStack {
 
   pop(){
     this.store.pop();
+    // console.log(this.store.lastNode.val);
+
+    this.min = this.store.lastNode.val.min;
+    // console.log(this.store.lastNode.val.min);
   }
 
   toString(){
@@ -38,4 +42,10 @@ stack.push(10);
 stack.push(15);
 stack.push(0);
 stack.push(12);
+stack.pop();
+stack.pop();
+stack.push(13);
+stack.push(-5);
+stack.push(5);
+stack.push(8);
 stack.toString();
