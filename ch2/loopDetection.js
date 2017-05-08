@@ -1,6 +1,16 @@
 const Node = require('./node.js');
 
 const loopDetection = (node) => {
+  let mySet = new Set();
+  let currentNode = node;
+  while (currentNode) {
+    if (mySet.has(currentNode)) {
+      return true;
+    }
+    mySet.add(currentNode);
+    currentNode = currentNode.next;
+  }
+  return false;
 };
 
 
@@ -19,11 +29,11 @@ node5.next = node6;
 node6.next = node7;
 node7.next = node4;
 
-// console.log(loopDetection(node1));
+console.log(loopDetection(node1));
 
-let currentNode = node1;
-
-while (currentNode) {
-  currentNode.toString();
-  currentNode = currentNode.next;
-}
+// let currentNode = node1;
+//
+// while (currentNode) {
+//   currentNode.toString();
+//   currentNode = currentNode.next;
+// }
