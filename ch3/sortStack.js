@@ -18,7 +18,8 @@ class Stack {
   }
 
   peek(){
-    return this.store[this.store.length];
+    // console.log(this.store);
+    return this.store[this.store.length - 1];
   }
 }
 
@@ -28,7 +29,23 @@ class sortStack {
   }
 
   push(val){
-    console.log(this.store.peek());
+    if (this.store.isEmpty() || this.store.peek() <= val) {
+      this.store.push(val);
+    }else {
+      let tempStack = new Stack();
+      while (this.store.peek() > val) {
+        if (this.store.isEmpty()) {
+          break;
+        }
+        tempStack.push(this.store.pop());
+      }
+      this.store.push(val);
+      while (!tempStack.isEmpty()) {
+        this.store.push(tempStack.pop());
+      }
+      // console.log(tempStack);
+      // console.log(this.store);
+    }
   }
 
   pop(){
@@ -39,6 +56,15 @@ class sortStack {
 
 let stack = new sortStack();
 
+stack.push(3);
+stack.push(6);
+stack.push(10);
+stack.push(4);
+stack.push(0);
+
+stack.push(12);
+stack.push(14);
 stack.push(5);
-// stack.push(12);
-// stack.push(14);
+stack.push(6);
+
+console.log(stack);
