@@ -30,17 +30,20 @@ class Queue {
   }
 }
 
-let myQueue = new Queue();
-myQueue.queue(5);
-myQueue.queue(6);
-myQueue.queue(7);
-myQueue.queue(8);
-myQueue.queue(9);
-myQueue.dequeue();
-myQueue.dequeue();
-myQueue.dequeue();
-myQueue.dequeue();
-myQueue.dequeue();
-myQueue.dequeue();
-console.log(myQueue.currentNode);
-console.log(myQueue.last);
+module.exports = Queue;
+
+
+// let myQueue = new Queue();
+// myQueue.queue(5);
+// myQueue.queue(6);
+// myQueue.queue(7);
+// myQueue.queue(8);
+// myQueue.queue(9);
+// myQueue.dequeue();
+// myQueue.dequeue();
+// myQueue.dequeue();
+// myQueue.dequeue();
+// myQueue.dequeue();
+// myQueue.dequeue();
+// console.log(myQueue.currentNode);
+// console.log(myQueue.last);

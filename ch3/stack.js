@@ -25,20 +25,22 @@ class Node{
   }
 }
 
-let myStack = new Stack();
-console.log(myStack);
-myStack.push(5);
-myStack.push(6);
-myStack.push(7);
-myStack.push(8);
-myStack.push(9);
-myStack.push(10);
-console.log(myStack.lastNode);
-myStack.pop();
-myStack.pop();
-myStack.pop();
-console.log(myStack.lastNode);
-myStack.push(12);
-myStack.push(15);
-console.log(myStack.lastNode);
+module.exports = Stack;
+
+// let myStack = new Stack();
+// console.log(myStack);
+// myStack.push(5);
+// myStack.push(6);
+// myStack.push(7);
+// myStack.push(8);
+// myStack.push(9);
+// myStack.push(10);
+// console.log(myStack.lastNode);
+// myStack.pop();
+// myStack.pop();
+// myStack.pop();
+// console.log(myStack.lastNode);
+// myStack.push(12);
+// myStack.push(15);
+// console.log(myStack.lastNode);
 // myStack.pop();

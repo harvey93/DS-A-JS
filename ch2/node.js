@@ -10,6 +10,13 @@ class Node {
 
 }
 
+// let node1 = new Node(5);
+// let node2 = new Node(5);
+//
+// if (node1.val === node2.val) {
+//   console.log(true);
+// }
+
 module.exports = Node;
 
 // let node1 = new Node(11);
