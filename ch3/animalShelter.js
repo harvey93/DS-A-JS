@@ -41,15 +41,25 @@ class AnimalShelter {
   }
 
   removeAny(){
+    // console.log(this.nextCat.val.timeStamp, this.nextDog.val.timeStamp);
 
+    if (this.nextCat.val.timeStamp < this.nextDog.val.timeStamp) {
+      this.removeCat();
+    }else {
+      this.removeDog();
+    }
   }
 
   removeDog(){
-
+    let dog = this.nextDog;
+    this.nextDog = this.nextDog.next;
+    return dog;
   }
 
   removeCat(){
-
+    let cat = this.nextCat;
+    this.nextCat = this.nextCat.next;
+    return cat;
   }
 }
 
@@ -61,5 +71,12 @@ shelter.add({type: "Dog", timeStamp: 4});
 shelter.add({type: "Cat", timeStamp: 3});
 shelter.add({type: "Cat", timeStamp: 6});
 shelter.add({type: "Cat", timeStamp: 10});
+
+// shelter.removeDog();
+// shelter.removeCat();
+
+shelter.removeAny();
+shelter.removeAny();
+shelter.removeAny();
 
 console.log(shelter);
