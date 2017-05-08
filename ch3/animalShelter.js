@@ -12,6 +12,54 @@ class Node {
 
 class AnimalShelter {
   constructor() {
+    this.lastDog = null;
+    this.lastCat = null;
+    this.nextDog = null;
+    this.nextCat = null;
+  }
+
+  add(animal){
+    if (animal.type === "Dog") {
+      let dogNode = new Node(animal);
+      if (this.nextDog === null) {
+        this.nextDog = dogNode;
+        this.lastDog = dogNode;
+      }else {
+        this.lastDog.next = dogNode;
+        this.lastDog = dogNode;
+      }
+    }else {
+      let catNode = new Node(animal);
+      if (this.nextCat === null) {
+        this.nextCat = catNode;
+        this.lastCat = catNode;
+      }else {
+        this.lastCat.next = catNode;
+        this.lastCat = catNode;
+      }
+    }
+  }
+
+  removeAny(){
+
+  }
+
+  removeDog(){
+
+  }
+
+  removeCat(){
 
   }
 }
+
+let shelter = new AnimalShelter();
+shelter.add({type: "Dog", timeStamp: 1});
+shelter.add({type: "Dog", timeStamp: 2});
+shelter.add({type: "Dog", timeStamp: 4});
+
+shelter.add({type: "Cat", timeStamp: 3});
+shelter.add({type: "Cat", timeStamp: 6});
+shelter.add({type: "Cat", timeStamp: 10});
+
+console.log(shelter);
