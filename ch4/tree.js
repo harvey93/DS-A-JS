@@ -5,8 +5,14 @@ class Node {
     this.right = null;
   }
 
-  find(val){
-    
+  prettyPrint(current){
+    if(current.left){
+      prettyPrint(current.left);
+    }
+    console.log(current.val;
+    if(current.right){
+      prettyPrint(current.right);
+    }
   }
 }
 

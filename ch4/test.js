@@ -45,6 +45,29 @@ var maxProfit = function(prices) {
     return maxProfit;
 };
 
+
+var maxProfit = function(prices) {
+    let min = prices[0];
+    let maxProfit = 0;
+    let totalProfit = 0;
+    let max = prices[0];
+    for(let i = 1; i < prices.length; i++){
+        let currentVal = prices[i];
+        let currentProfit = currentVal - min;
+        if(currentProfit > maxProfit){
+            maxProfit = currentProfit;
+            max = currentVal;
+        }
+        if(currentVal < min || max > currentVal){
+            totalProfit += maxProfit;
+            maxProfit = 0;
+            min = currentVal;
+        }
+    }
+    totalProfit += maxProfit;
+    return totalProfit;
+};
+
 // function calcWrap(numWrap, wrapCount){
 //     let extra = 0;
 //     let count = wrapCount;
