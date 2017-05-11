@@ -24,6 +24,16 @@ class Node {
       this.right.preOrderPrint();
     }
   }
+
+  postOrderPrint(){
+    if(this.left){
+      this.left.postOrderPrint();
+    }
+    if(this.right){
+      this.right.postOrderPrint();
+    }
+    console.log(this.data);
+  }
 }
 
 let node1 = new Node("1");
@@ -43,5 +53,6 @@ node2.right = node5;
 node3.left = node6;
 node3.right = node7;
 
-node1.inOrderPrint();
+// node1.inOrderPrint();
 // node1.preOrderPrint();
+node1.postOrderPrint();
