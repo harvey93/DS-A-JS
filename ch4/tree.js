@@ -5,13 +5,13 @@ class Node {
     this.right = null;
   }
 
-  prettyPrint(current){
+  inOrderPrint(current = this){
     if(current.left){
-      prettyPrint(current.left);
+      this.inOrderPrint(current.left);
     }
-    console.log(current.val;
+    console.log(current.data);
     if(current.right){
-      prettyPrint(current.right);
+      this.inOrderPrint(current.right);
     }
   }
 }
@@ -32,3 +32,5 @@ node2.right = node5;
 
 node3.left = node6;
 node3.right = node7;
+
+node1.inOrderPrint();
