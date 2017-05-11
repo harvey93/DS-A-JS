@@ -5,13 +5,23 @@ class Node {
     this.right = null;
   }
 
-  inOrderPrint(current = this){
-    if(current.left){
-      this.inOrderPrint(current.left);
+  inOrderPrint(){
+    if(this.left){
+      this.left.inOrderPrint();
     }
-    console.log(current.data);
-    if(current.right){
-      this.inOrderPrint(current.right);
+    console.log(this.data);
+    if(this.right){
+      this.right.inOrderPrint();
+    }
+  }
+
+  preOrderPrint(){
+    console.log(this.data);
+    if(this.left){
+      this.left.preOrderPrint();
+    }
+    if(this.right){
+      this.right.preOrderPrint();
     }
   }
 }
@@ -34,3 +44,4 @@ node3.left = node6;
 node3.right = node7;
 
 node1.inOrderPrint();
+// node1.preOrderPrint();
