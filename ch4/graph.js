@@ -149,6 +149,6 @@ graph.addEdge(node4, node7); //D -> G
 
 graph.addEdge(node7, node9); //G -> I
 
-graph.dfs(node1, node8);
+graph.dfs(node1, node9);
 // console.log(graph.getAdjUnvisitedVertex(1));
 // console.log(graph.getVertI(node8));
