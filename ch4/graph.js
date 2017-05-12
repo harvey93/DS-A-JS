@@ -66,7 +66,21 @@ class Graph {
       }
 
     }
+    if (stack.length === 0) {
+      return false;
+    }
+    this.resetList();
     console.log(stack);
+  }
+
+  resetList(){
+    this.vertList.forEach(el => {
+      el.wasVisited = false;
+    });
+  }
+
+  bfs(start, end){
+
   }
 
   getAdjUnvisitedVertex(listI){
@@ -150,5 +164,6 @@ graph.addEdge(node4, node7); //D -> G
 graph.addEdge(node7, node9); //G -> I
 
 graph.dfs(node1, node9);
+
 // console.log(graph.getAdjUnvisitedVertex(1));
 // console.log(graph.getVertI(node8));
