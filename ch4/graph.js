@@ -48,16 +48,27 @@ class Graph {
     this.vertMatrix = this.buildMatrix();
   }
 
+  dfs(end){
+    let stack = [];
+    stack.push(this.vertList[0]);
+    while (!end.wasVisited) {
+      let current = stack[stack.length - 1];
+      current.wasVisited = true;
+      let i = this.vertList.indexOf(current);
+      this.vertMatrix[i].forEach((el, j) => {
+        if(el !== 0){
+          stack.push(this.vertList[j]);
+        }
+      });
+    }
+    console.log();
+  }
+
   buildMatrix(){
     let arr = [];
     for (let i = 0; i < this.maxVerts; i++) {
       arr.push([]);
     }
-    // for (let i = 0; i < this.maxVerts; i++) {
-    //   for (let j = 0; i < this.maxVerts; i++) {
-    //     this.maxVerts[i].push(0);
-    //   }
-    // }
     arr.forEach(el => {
       for (let i = 0; i < this.maxVerts; i++) {
         arr[i].push(0);
@@ -116,4 +127,4 @@ graph.addEdge(node4, node7); //D -> G
 
 graph.addEdge(node7, node9); //G -> I
 
-console.log(graph.vertMatrix);
+graph.dfs();
