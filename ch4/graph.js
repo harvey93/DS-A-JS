@@ -73,15 +73,36 @@ class Graph {
     console.log(stack);
   }
 
+  bfs(start, end){
+    let res = false;
+    let queue = [];
+    start.wasVisited = true;
+    queue.unshift(start);
+    while(queue.length !== 0){
+      let peek = queue[0];
+      let adjVertexI = this.getAdjUnvisitedVertex(this.vertList.indexOf(peek));
+      if (adjVertexI === -1){
+        queue.shift();
+      }else {
+        let adjVert = this.vertList[adjVertexI];
+        adjVert.wasVisited = true;
+        queue.push(adjVert);
+        if (adjVert.label === end.label) {
+          res = true;
+          break;
+        }
+      }
+    }
+    return res;
+  }
+
   resetList(){
     this.vertList.forEach(el => {
       el.wasVisited = false;
     });
   }
 
-  bfs(start, end){
 
-  }
 
   getAdjUnvisitedVertex(listI){
     let res = -1;
@@ -163,7 +184,8 @@ graph.addEdge(node4, node7); //D -> G
 
 graph.addEdge(node7, node9); //G -> I
 
-graph.dfs(node1, node9);
+// graph.dfs(node1, node9);
+console.log(graph.bfs(node2, node8));
 
 // console.log(graph.getAdjUnvisitedVertex(1));
 // console.log(graph.getVertI(node8));
