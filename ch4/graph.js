@@ -48,8 +48,25 @@ class Graph {
     this.vertMatrix = this.buildMatrix();
   }
 
-  dfs(end){
+  dfs(start, end){
+    let stack = [];
+    start.wasVisited = true;
+    stack.push(start);
+    while (stack.length !== 0) {
+      let peek = stack[stack.length - 1];
+      let adjVertexI = this.getAdjUnvisitedVertex(this.vertList.indexOf(peek));
 
+      if (adjVertexI === -1) {
+        stack.pop();
+      }else{
+        let adjVert = this.vertList[adjVertexI];
+        adjVert.wasVisited = true;
+        stack.push(adjVert);
+        if (adjVert.label === end.label) {break;}
+      }
+
+    }
+    console.log(stack);
   }
 
   getAdjUnvisitedVertex(listI){
@@ -132,6 +149,6 @@ graph.addEdge(node4, node7); //D -> G
 
 graph.addEdge(node7, node9); //G -> I
 
-// graph.dfs();
-console.log(graph.getAdjUnvisitedVertex(1));
+graph.dfs(node1, node8);
+// console.log(graph.getAdjUnvisitedVertex(1));
 // console.log(graph.getVertI(node8));
