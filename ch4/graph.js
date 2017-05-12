@@ -43,6 +43,35 @@ class Vertex {
 
 class Graph {
   constructor() {
-    
+    this.maxVerts = 10;
+    this.vertList = [];
+    this.vertMatrix = this.buildMatrix();
+  }
+
+  buildMatrix(){
+    let arr = [];
+    for (let i = 0; i < this.maxVerts; i++) {
+      arr.push([]);
+    }
+    return arr;
+  }
+
+  addVertex(vertex){
+    this.vertList.push(vertex);
+  }
+
+  addEdge(){
+
   }
 }
+
+
+let node1 = new Vertex("A");
+let node2 = new Vertex("B");
+
+let graph = new Graph();
+
+graph.addVertex(node1);
+graph.addVertex(node2);
+
+console.log(graph);
