@@ -43,7 +43,7 @@ class Vertex {
 
 class Graph {
   constructor() {
-    this.maxVerts = 10;
+    this.maxVerts = 4;
     this.vertList = [];
     this.vertMatrix = this.buildMatrix();
   }
@@ -53,6 +53,16 @@ class Graph {
     for (let i = 0; i < this.maxVerts; i++) {
       arr.push([]);
     }
+    // for (let i = 0; i < this.maxVerts; i++) {
+    //   for (let j = 0; i < this.maxVerts; i++) {
+    //     this.maxVerts[i].push(0);
+    //   }
+    // }
+    arr.forEach(el => {
+      for (let i = 0; i < this.maxVerts; i++) {
+        arr[i].push(0);
+      }
+    });
     return arr;
   }
 
@@ -60,18 +70,30 @@ class Graph {
     this.vertList.push(vertex);
   }
 
-  addEdge(){
-
+  addEdge(vert1, vert2){
+    let vert1Idx = this.vertList.indexOf(vert1);
+    let vert2Idx = this.vertList.indexOf(vert2);
+    this.vertMatrix[vert1Idx][vert2Idx] = 1;
   }
 }
 
 
 let node1 = new Vertex("A");
 let node2 = new Vertex("B");
+let node3 = new Vertex("C");
+let node4 = new Vertex("D");
 
 let graph = new Graph();
 
 graph.addVertex(node1);
 graph.addVertex(node2);
+graph.addVertex(node3);
+graph.addVertex(node4);
 
-console.log(graph);
+graph.addEdge(node1, node2);
+graph.addEdge(node1, node3);
+graph.addEdge(node3, node2);
+graph.addEdge(node1, node4);
+graph.addEdge(node3, node4);
+
+console.log(graph.vertMatrix);
