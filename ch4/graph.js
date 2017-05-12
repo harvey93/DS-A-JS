@@ -49,19 +49,24 @@ class Graph {
   }
 
   dfs(end){
-    let stack = [];
-    stack.push(this.vertList[0]);
-    while (!end.wasVisited) {
-      let current = stack[stack.length - 1];
-      current.wasVisited = true;
-      let i = this.vertList.indexOf(current);
-      this.vertMatrix[i].forEach((el, j) => {
-        if(el !== 0){
-          stack.push(this.vertList[j]);
-        }
-      });
+
+  }
+
+  getAdjUnvisitedVertex(listI){
+    let res = -1;
+    let row = this.vertMatrix[listI];
+    for (let i = 0; i < row.length; i++) {
+      let currentNode = this.vertList[i];
+      if (row[i] !== 0 && !currentNode.wasVisited) {
+        res = i;
+        break;
+      }
     }
-    console.log();
+    return res;
+  }
+
+  getVertI(node){
+    return this.vertList.indexOf(node);
   }
 
   buildMatrix(){
@@ -127,4 +132,6 @@ graph.addEdge(node4, node7); //D -> G
 
 graph.addEdge(node7, node9); //G -> I
 
-graph.dfs();
+// graph.dfs();
+console.log(graph.getAdjUnvisitedVertex(1));
+// console.log(graph.getVertI(node8));
