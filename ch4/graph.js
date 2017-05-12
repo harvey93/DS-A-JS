@@ -32,3 +32,17 @@
 // // self.to_vertex = nil
 // // self.from_vertex.out_edges.delete(self)
 // // self.from_vertex = nil
+
+class Vertex {
+  constructor(label) {
+    this.label = label;
+    this.wasVisited = false;
+  }
+}
+
+
+class Graph {
+  constructor() {
+    
+  }
+}
