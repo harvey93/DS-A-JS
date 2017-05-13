@@ -120,7 +120,15 @@ class Graph {
   }
 
   topoSort(){
-    console.log(this.noSuccessors());
+    
+  }
+
+  deleteVertex(index){
+    this.vertList.splice(index, 1);
+    this.vertMatrix.splice(index, 1);
+    this.vertMatrix.forEach(el => {
+      el.splice(index, 1);
+    });
   }
 
   noSuccessors(){
