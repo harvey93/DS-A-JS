@@ -93,8 +93,14 @@ class Graph {
         }
       }
     }
+    this.resetList();
     return res;
   }
+
+  mst(){
+    console.log('true');
+  }
+
 
   resetList(){
     this.vertList.forEach(el => {
@@ -160,15 +166,17 @@ let node9 = new Vertex("I");
 
 let graph = new Graph();
 
+
+
 graph.addVertex(node1);
 graph.addVertex(node2);
 graph.addVertex(node3);
 graph.addVertex(node4);
 graph.addVertex(node5);
-graph.addVertex(node6);
-graph.addVertex(node7);
-graph.addVertex(node8);
-graph.addVertex(node9);
+// graph.addVertex(node6);
+// graph.addVertex(node7);
+// graph.addVertex(node8);
+// graph.addVertex(node9);
 
 graph.addEdge(node1, node2); //A -> B
 graph.addEdge(node1, node3); //A -> C
@@ -176,16 +184,34 @@ graph.addEdge(node1, node4); //A -> D
 graph.addEdge(node1, node5); //A -> E
 
 
-graph.addEdge(node2, node6); //B -> F
+graph.addEdge(node2, node3); //B -> C
+graph.addEdge(node2, node4); //B -> D
+graph.addEdge(node2, node5); //B -> E
 
-graph.addEdge(node6, node8); //F -> H
+graph.addEdge(node3, node4); //C -> D
+graph.addEdge(node3, node5); //C -> E
 
-graph.addEdge(node4, node7); //D -> G
+graph.addEdge(node4, node5); //D -> E
 
-graph.addEdge(node7, node9); //G -> I
+graph.mst();
+
+
+
+// graph.addEdge(node1, node2); //A -> B
+// graph.addEdge(node1, node3); //A -> C
+// graph.addEdge(node1, node4); //A -> D
+// graph.addEdge(node1, node5); //A -> E
+//
+//
+// graph.addEdge(node2, node6); //B -> F
+//
+// graph.addEdge(node6, node8); //F -> H
+//
+// graph.addEdge(node4, node7); //D -> G
+//
+// graph.addEdge(node7, node9); //G -> I
 
 // graph.dfs(node1, node9);
-console.log(graph.bfs(node2, node8));
-
+// console.log(graph.bfs(node2, node8));
 // console.log(graph.getAdjUnvisitedVertex(1));
 // console.log(graph.getVertI(node8));
