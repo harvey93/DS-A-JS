@@ -119,6 +119,21 @@ class Graph {
     return stack;
   }
 
+  topoSort(){
+    console.log(this.noSuccessors());
+  }
+
+  noSuccessors(){
+    let res = -1;
+    for (let i = 0; i < this.vertMatrix.length; i++) {
+      if(this.vertMatrix.every(el => el[i] === 0)){
+        res = i;
+        break;
+      }
+    }
+    return res;
+  }
+
 
   resetList(){
     this.vertList.forEach(el => {
@@ -212,7 +227,7 @@ graph.addEdge(node6, node8); //F -> H
 
 graph.addEdge(node7, node8); //G -> H
 
-
+graph.topoSort();
 
 // graph.addEdge(node1, node2); //A -> B
 // graph.addEdge(node1, node3); //A -> C
