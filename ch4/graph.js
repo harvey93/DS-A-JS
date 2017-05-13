@@ -98,7 +98,22 @@ class Graph {
   }
 
   mst(){
-    console.log('true');
+    let stack = [];
+    stack.push(this.vertList[0]);
+    while (stack.length !== 0) {
+      let peek = stack[stack.length - 1];
+      let adjVertexI = this.getAdjUnvisitedVertex(this.vertList.indexOf(peek));
+      if (adjVertexI === -1) {
+        stack.pop();
+      }else {
+        let adjVert = this.vertList[adjVertexI];
+        adjVert.wasVisited = true;
+        stack.push(adjVert);
+        if (stack.length === this.vertList.length) {
+          console.log(stack);
+        }
+      }
+    }
   }
 
 
