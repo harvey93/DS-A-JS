@@ -120,7 +120,13 @@ class Graph {
   }
 
   topoSort(){
-    
+    let sorted = [];
+    while (this.vertList.length !== 0) {
+      let vertIndex = this.noSuccessors();
+      sorted.push(this.vertList[vertIndex]);
+      this.deleteVertex(vertIndex);
+    }
+    console.log(sorted);
   }
 
   deleteVertex(index){
@@ -220,23 +226,37 @@ graph.addVertex(node8);
 // graph.addVertex(node9);
 
 
-graph.addEdge(node1, node4); //A -> D
-graph.addEdge(node1, node5); //A -> E
+// graph.addEdge(node1, node4); //A -> D
+// graph.addEdge(node1, node5); //A -> E
+//
+// graph.addEdge(node2, node5); //B -> E
+//
+// graph.addEdge(node3, node6); //C -> F
+//
+// graph.addEdge(node4, node7); //D -> G
+//
+// graph.addEdge(node5, node7); //E -> G
+//
+// graph.addEdge(node6, node8); //F -> H
+//
+// graph.addEdge(node7, node8); //G -> H
 
-graph.addEdge(node2, node5); //B -> E
+graph.addEdge(node4, node1); //A -> D
+graph.addEdge(node5, node1); //A -> E
 
-graph.addEdge(node3, node6); //C -> F
+graph.addEdge(node5, node2); //B -> E
 
-graph.addEdge(node4, node7); //D -> G
+graph.addEdge(node6, node3); //C -> F
 
-graph.addEdge(node5, node7); //E -> G
+graph.addEdge(node7, node4); //D -> G
 
-graph.addEdge(node6, node8); //F -> H
+graph.addEdge(node7, node5); //E -> G
 
-graph.addEdge(node7, node8); //G -> H
+graph.addEdge(node8, node6); //F -> H
+
+graph.addEdge(node8, node7); //G -> H
 
 graph.topoSort();
-
 // graph.addEdge(node1, node2); //A -> B
 // graph.addEdge(node1, node3); //A -> C
 // graph.addEdge(node1, node4); //A -> D
