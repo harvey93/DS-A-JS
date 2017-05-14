@@ -54,7 +54,7 @@ class PQ {
 
 class Graph {
   constructor() {
-    this.maxVerts = 9;
+    this.maxVerts = 6;
     this.vertList = [];
     this.vertMatrix = this.buildMatrix();
     this.pq = new PQ();
@@ -206,10 +206,10 @@ class Graph {
     this.vertList.push(vertex);
   }
 
-  addEdge(vert1, vert2){
+  addEdge(vert1, vert2, cost){
     let vert1Idx = this.vertList.indexOf(vert1);
     let vert2Idx = this.vertList.indexOf(vert2);
-    this.vertMatrix[vert1Idx][vert2Idx] = 1;
+    this.vertMatrix[vert1Idx][vert2Idx] = cost;
   }
 }
 
@@ -221,20 +221,20 @@ let node4 = new Vertex("D");
 let node5 = new Vertex("E");
 let node6 = new Vertex("F");
 
-let edge1 = new Edge (node1, node2, 6); //A -> B
-let edge2 = new Edge (node1, node4, 4); //A -> D
-
-let edge3 = new Edge (node2, node3, 10); //B -> C
-let edge4 = new Edge (node2, node4, 7); //B -> D
-let edge5 = new Edge (node2, node5, 7); //B -> E
-
-let edge6 = new Edge (node3, node4, 8); //C -> D
-let edge7 = new Edge (node3, node5, 5); //C -> E
-let edge8 = new Edge (node3, node6, 6); //C -> F
-
-let edge9 = new Edge (node4, node5, 12); //D -> E
-
-let edge10 = new Edge (node5, node6, 7); //E -> F
+// let edge1 = new Edge (node1, node2, 6); //A -> B
+// let edge2 = new Edge (node1, node4, 4); //A -> D
+//
+// let edge3 = new Edge (node2, node3, 10); //B -> C
+// let edge4 = new Edge (node2, node4, 7); //B -> D
+// let edge5 = new Edge (node2, node5, 7); //B -> E
+//
+// let edge6 = new Edge (node3, node4, 8); //C -> D
+// let edge7 = new Edge (node3, node5, 5); //C -> E
+// let edge8 = new Edge (node3, node6, 6); //C -> F
+//
+// let edge9 = new Edge (node4, node5, 12); //D -> E
+//
+// let edge10 = new Edge (node5, node6, 7); //E -> F
 
 let graph = new Graph();
 
@@ -244,6 +244,21 @@ graph.addVertex(node3);
 graph.addVertex(node4);
 graph.addVertex(node5);
 graph.addVertex(node6);
+
+graph.addEdge(node1, node2, 6); //A -> B
+graph.addEdge(node1, node4, 4); //A -> D
+
+graph.addEdge(node2, node3, 10); //B -> C
+graph.addEdge(node2, node4, 7); //B -> D
+graph.addEdge(node2, node5, 7); //B -> E
+
+graph.addEdge(node3, node4, 8); //C -> D
+graph.addEdge(node3, node5, 5); //C -> E
+graph.addEdge(node3, node6, 6); //C -> F
+
+graph.addEdge(node4, node5, 12); //D -> E
+
+graph.addEdge(node5, node6, 7); //E -> F
 
 console.log(graph.vertMatrix);
 console.log(graph.vertList);
