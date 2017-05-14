@@ -52,6 +52,28 @@ class PQ {
 
 }
 
+class Graph {
+  constructor() {
+    this.maxVerts = 6;
+    this.vertList = [];
+    this.vertMatrix = this.buildMatrix();
+  }
+
+  buildMatrix(){
+    let arr = [];
+    for (let i = 0; i < this.maxVerts; i++) {
+      arr.push([]);
+    }
+    arr.forEach(el => {
+      for (let i = 0; i < this.maxVerts; i++) {
+        arr[i].push(0);
+      }
+    });
+    return arr;
+  }
+  
+}
+
 let node1 = new Vertex("A");
 let node2 = new Vertex("B");
 let node3 = new Vertex("C");
@@ -76,22 +98,22 @@ let edge9 = new Edge (node4, node5, 12); //D -> E
 let edge10 = new Edge (node5, node6, 7); //E -> F
 
 
-let pq = new PQ();
+// let pq = new PQ();
+//
+// pq.insert(edge1);
+// pq.insert(edge2);
+// pq.insert(edge3);
+// pq.insert(edge4);
+// pq.insert(edge5);
+// pq.insert(edge6);
+// pq.insert(edge7);
+// pq.insert(edge8);
+// pq.insert(edge9);
+// pq.insert(edge10);
 
-pq.insert(edge1);
-pq.insert(edge2);
-pq.insert(edge3);
-pq.insert(edge4);
-pq.insert(edge5);
-pq.insert(edge6);
-pq.insert(edge7);
-pq.insert(edge8);
-pq.insert(edge9);
-pq.insert(edge10);
 
-
-console.log(pq);
-console.log(pq.find(6));
+// console.log(pq);
+// console.log(pq.find(6));
 
 //
 //
