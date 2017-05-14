@@ -30,6 +30,26 @@ class PQ {
   peek(){
     return this.qArr[this.qArr.length - 1];
   }
+
+  size(){
+    return this.qArr.length;
+  }
+
+  isEmpty(){
+    return (this.size() === 0);
+  }
+
+  find(val){
+    let res = -1;
+    for (let i = 0; i < this.size(); i++) {
+      if (this.qArr[i].cost === val) {
+        res = i;
+        break;
+      }
+    }
+    return res;
+  }
+
 }
 
 let node1 = new Vertex("A");
@@ -70,7 +90,8 @@ pq.insert(edge9);
 pq.insert(edge10);
 
 
-console.log(pq.peek());
+console.log(pq);
+console.log(pq.find(6));
 
 //
 //
