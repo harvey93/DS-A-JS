@@ -20,7 +20,7 @@ class PQ {
 
   insert(el){
     this.qArr.push(el);
-    this.qArr.sort((a, b) => b.cost - a.cost);
+    this.qArr.sort((a, b) => b - a);
   }
 
   removeMin(){
@@ -162,6 +162,10 @@ class Graph {
 
   wmst(){
 
+  }
+
+  putInPQ(){
+    
   }
 
   resetList(){
