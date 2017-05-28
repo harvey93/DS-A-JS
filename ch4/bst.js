@@ -24,9 +24,49 @@ class Node {
 
   deleteBST(val, parent = null){
     if(this.data === val){
-      console.log(parent);
-      console.log(this);
-      return this;
+      if(this.right && this.left){
+        // console.log('both');
+        // console.log(this);
+        let newVal = this.right.getMin();
+        node1.deleteBST(newVal.data);
+        if(this.isLeftChild(parent)){
+          parent.left = newVal;
+        }else {
+          parent.right = newVal;
+        }
+        if(this.right !== newVal){
+          newVal.right = this.right;
+        }
+          newVal.left = this.left;
+          // newVal.right = this.right;
+        // console.log(this);
+      }else if (this.right) {
+        // console.log('right');
+        // console.log(this);
+        if(this.isLeftChild(parent)){
+          parent.left = this.right;
+        }else {
+          parent.right = this.right;
+        }
+
+      }else if (this.left) {
+        // console.log('left');
+        // console.log(this);
+        if(this.isLeftChild(parent)){
+          parent.left = this.left;
+        }else {
+          parent.right = this.left;
+        }
+
+      }else {
+        // console.log('neither');
+        // console.log(this);
+        if(this.isLeftChild(parent)){
+          parent.left = null;
+        }else {
+          parent.right = null;
+        }
+      }
     }
     if(val > this.data){
       if(this.right){
@@ -38,6 +78,25 @@ class Node {
       }
     }
     return -1;
+  }
+
+  getParent(node){
+    if(this.right === node || this.left === node){
+      return this;
+    }
+    if(this.data > node.data){
+      return this.left.getParent(node);
+    }else {
+      return this.right.getParent(node);
+    }
+  }
+
+  isLeftChild(parent){
+    if(parent.left === this){
+      return true;
+    }else {
+      return false;
+    }
   }
 
   addBST(node){
@@ -71,7 +130,7 @@ class Node {
 
   getMin(){
     if(this.left === null){
-      return this.data;
+      return this;
     }else {
       return this.left.getMin();
     }
@@ -79,7 +138,7 @@ class Node {
 
   getMax(){
     if(this.right === null){
-      return this.data;
+      return this;
     } else {
       return this.right.getMax();
     }
@@ -98,6 +157,8 @@ let node7 = new Node(2);
 let node8 = new Node(0);
 let node9 = new Node(55);
 let node10 = new Node(80);
+let node11 = new Node(45);
+let node12 = new Node(78);
 
 node1.addBST(node2);
 node1.addBST(node5);
@@ -108,11 +169,21 @@ node1.addBST(node6);
 node1.addBST(node7);
 node1.addBST(node9);
 node1.addBST(node10);
+node1.addBST(node11);
+node1.addBST(node12);
 // console.log(node1.inOrderTraversal());
 // console.log(node1.getMax());
 
-node1.deleteBST(2);
+  //         15
+  //      8       30
+  //    3  12   16   55
+  //  0            45   80  
+  //   2               78
 
+// console.log(node1.inOrderTraversal());
+node1.deleteBST(55);
+console.log(node1.inOrderTraversal());
+console.log(node12);
 
 // console.log(Node.checkBST(node1));
 
