@@ -22,6 +22,11 @@ class Node {
     return true;
   }
 
+  static kthLargest(root, k){
+    let arr = root.inOrderTraversal().reverse();
+    console.log(arr[k - 1]);
+  }
+
   deleteBST(val, parent = null){
     if(this.data === val){
       if(this.right && this.left){
@@ -184,6 +189,7 @@ node1.addBST(node12);
 // node1.deleteBST(8);
 // console.log(node1.inOrderTraversal());
 // console.log(node2.getMin());
+Node.kthLargest(node1, 5);
 
 // console.log(Node.checkBST(node1));
 
