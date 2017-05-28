@@ -181,9 +181,9 @@ node1.addBST(node12);
   //   2               78
 
 // console.log(node1.inOrderTraversal());
-node1.deleteBST(55);
-console.log(node1.inOrderTraversal());
-console.log(node12);
+// node1.deleteBST(8);
+// console.log(node1.inOrderTraversal());
+// console.log(node2.getMin());
 
 // console.log(Node.checkBST(node1));
 
