@@ -31,9 +31,39 @@ class Node {
    if(node.right){
      return node.right.getMin();
    } else {
-     
+     let parent = node1.getParent(node);
+     return parent.getFirstRightChild();
+    // console.log(node1.getParent(node));
    }
   }
+
+  getFirstRightChild(){
+    // console.log(this);
+    // console.log(node1.getParent(this));
+    let parent = node1.getParent(this);  
+    if(this.isLeftChild(parent)){
+      return parent;
+    } else {
+      return parent.getFirstRightChild();
+
+    }
+  }
+
+  getParent(node){
+    if(this.right === node || this.left === node){
+      return this;
+    }
+    if(this.data > node.data){
+      if(this.left){
+        return this.left.getParent(node);
+      }
+    }else {
+      if(this.right){
+      return this.right.getParent(node);
+      }
+    }
+  }
+
 
   deleteBST(val, parent = null){
     if(this.data === val){
@@ -93,16 +123,6 @@ class Node {
     return -1;
   }
 
-  getParent(node){
-    if(this.right === node || this.left === node){
-      return this;
-    }
-    if(this.data > node.data){
-      return this.left.getParent(node);
-    }else {
-      return this.right.getParent(node);
-    }
-  }
 
   isLeftChild(parent){
     if(parent.left === this){
@@ -196,7 +216,7 @@ node1.addBST(node12);
 // console.log(node1.inOrderTraversal());
 // node1.deleteBST(8);
 console.log(node1.inOrderTraversal());
-console.log(Node.successor(node5));
+console.log(Node.successor(node5).data);
 // console.log(node2.getMin());
 // Node.kthLargest(node1, 5);
 
