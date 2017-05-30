@@ -40,12 +40,15 @@ class Node {
   getFirstRightChild(){
     // console.log(this);
     // console.log(node1.getParent(this));
-    let parent = node1.getParent(this);  
-    if(this.isLeftChild(parent)){
-      return parent;
-    } else {
-      return parent.getFirstRightChild();
-
+    let parent = node1.getParent(this);
+    if(parent){
+      return null;
+    }else {  
+      if(this.isLeftChild(parent)){
+        return parent;
+      } else {
+        return parent.getFirstRightChild();
+      }
     }
   }
 
@@ -216,7 +219,7 @@ node1.addBST(node12);
 // console.log(node1.inOrderTraversal());
 // node1.deleteBST(8);
 console.log(node1.inOrderTraversal());
-console.log(Node.successor(node5).data);
+console.log(Node.successor(node10));
 // console.log(node2.getMin());
 // Node.kthLargest(node1, 5);
 
