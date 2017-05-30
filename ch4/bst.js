@@ -27,6 +27,14 @@ class Node {
     console.log(arr[k - 1]);
   }
 
+  static successor(node){
+   if(node.right){
+     return node.right.getMin();
+   } else {
+     
+   }
+  }
+
   deleteBST(val, parent = null){
     if(this.data === val){
       if(this.right && this.left){
@@ -187,9 +195,10 @@ node1.addBST(node12);
 
 // console.log(node1.inOrderTraversal());
 // node1.deleteBST(8);
-// console.log(node1.inOrderTraversal());
+console.log(node1.inOrderTraversal());
+console.log(Node.successor(node5));
 // console.log(node2.getMin());
-Node.kthLargest(node1, 5);
+// Node.kthLargest(node1, 5);
 
 // console.log(Node.checkBST(node1));
 
