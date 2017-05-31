@@ -27,6 +27,7 @@ class Node {
     console.log(arr[k - 1]);
   }
 
+
   static successor(node){
    if(node.right){
      return node.right.getMin();

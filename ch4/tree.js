@@ -16,6 +16,7 @@ class Node {
     return Math.max(leftHeight, rightHeight) + 1;
   }
 
+
   inOrderPrint(){
     if(this.left){
       this.left.inOrderPrint();
