@@ -10,6 +10,20 @@ class BMAxHeap {
         }
     }
 
+    sink(k){
+        while(2 * k <= this.store.length - 1){
+            let j = 2 * k;
+            if(j < this.store.length - 1 && this.less(j, j + 1)){
+                j++;
+            }
+            if(this.less(k, j)){
+                break;
+            }
+            this.exch(k, j);
+            k = j;
+        }
+    }
+
     insert(el) {
         this.store.push(el);
         this.swim(this.store.length - 1);
