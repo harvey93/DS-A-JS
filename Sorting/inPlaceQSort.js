@@ -1,4 +1,9 @@
-const quickSort = (arr) => {
+const quickSort = (arr, lo, hi) => {
+    if (hi <= lo) {return;}
+    let j = partition(arr, lo, hi);
+    // return j;
+    quickSort(arr, lo, j - 1);
+    quickSort(arr, j + 1, hi);
 }; 
 
 const partition = (arr, lo, hi) => {
@@ -17,7 +22,8 @@ const partition = (arr, lo, hi) => {
         exch(arr, i, j);
     }
     exch(arr, lo, j);
-    return arr;
+    // return arr;
+    return j;
 };
 
 const less = (val1, val2) => {
@@ -31,9 +37,10 @@ const exch = (arr, i, j ) => {
     return arr;
 };
 
-let array = [6, 15 ,1, 2, 9, 0, 12, 4, 121];
+let array = [6, 15 ,1, 2, -5, 9, 0, 12, 4, 121];
 
-console.log(partition(array, 0, array.length - 1));
+quickSort(array, 0, array.length - 1);
+console.log(array);
 // console.log(exch([1,2,3,4], 0, 3));
 
 
