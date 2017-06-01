@@ -3,6 +3,16 @@ class BMAxHeap {
         this.store = [null];
     }
 
+    static heapSort(arr){
+        let PQ = new BMAxHeap();
+        let res = [];
+        arr.forEach(el => PQ.insert(el));
+        while(PQ.store.length > 1) {
+            res.unshift(PQ.delMax());
+        }
+        return res;
+    }
+
     swim(k){
         while (k > 1 && this.less(Math.floor(k / 2), k)){
             this.exch(k, Math.floor(k /2));
@@ -60,4 +70,8 @@ myPQ.insert(12);
 myPQ.delMax();
 myPQ.delMax();
 
-console.log(myPQ);
+// console.log(myPQ);
+
+let array = [5,2,1,5,6,76,87,32,15];
+
+console.log(BMAxHeap.heapSort(array));
