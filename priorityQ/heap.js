@@ -10,13 +10,21 @@ class BMAxHeap {
         }
     }
 
+    delMax(){
+        let max = this.store[1];
+        this.exch(1, this.store.length - 1);
+        this.store.pop();
+        this.sink(1);
+        return max;
+    }
+
     sink(k){
         while(2 * k <= this.store.length - 1){
             let j = 2 * k;
             if(j < this.store.length - 1 && this.less(j, j + 1)){
                 j++;
             }
-            if(this.less(k, j)){
+            if(!this.less(k, j)){
                 break;
             }
             this.exch(k, j);
@@ -48,5 +56,8 @@ myPQ.insert(2);
 myPQ.insert(6);
 myPQ.insert(8);
 myPQ.insert(12);
+
+myPQ.delMax();
+myPQ.delMax();
 
 console.log(myPQ);
