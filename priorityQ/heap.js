@@ -1,13 +1,18 @@
 class BMAxHeap {
     constructor(){
-        this.store = [];
+        this.store = [null];
     }
 
     swim(k){
-        while (k > 1 && this.less(k / 2, k)){
-            exch(k, k /2);
+        while (k > 1 && this.less(Math.floor(k / 2), k)){
+            this.exch(k, Math.floor(k /2));
             k = Math.floor(k / 2);
         }
+    }
+
+    insert(el) {
+        this.store.push(el);
+        this.swim(this.store.length - 1);
     }
 
     less(i, j){
@@ -21,9 +26,13 @@ class BMAxHeap {
     }
 }
 
-const exch = (arr, i, j ) => {
-    let temp = arr[i];
-    arr[i] = arr[j];
-    arr[j] = temp;
-    return arr;
-};
+let myPQ = new BMAxHeap();
+
+myPQ.insert(5);
+myPQ.insert(10);
+myPQ.insert(2);
+myPQ.insert(6);
+myPQ.insert(8);
+myPQ.insert(12);
+
+console.log(myPQ);
