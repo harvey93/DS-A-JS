@@ -14,7 +14,19 @@ const merge = (arr1, arr2) => {
     return arr3;
 };
 
-let arr1 = [1,4,6,7];
-let arr2 = [2,3,8,9,12,14];
+const mergeSort = (arr) => {
+    if(arr.length < 2) {
+        return arr;
+    }
+    let mid = Math.floor(arr.length / 2);
+    let arr1 = mergeSort(arr.slice(0, mid));
+    let arr2 = mergeSort(arr.slice(mid, arr.length));
+    return merge(arr1, arr2);
+};
 
-console.log(merge(arr1, arr2));
+// let arr1 = [1,4,6,7];
+// let arr2 = [2,3,8,9,12,14];
+
+// console.log(merge(arr1, arr2));
+// mergeSort([5,3,1,6,7,3,2,9,12]);
+console.log(mergeSort([5,3,1,6,7,3,2,9,12]));
