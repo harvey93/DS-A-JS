@@ -12,6 +12,13 @@ class rbTree {
         this.root = null;
     }
 
+    insert(data){
+        if(this.root === null) {
+            this.root = new rbNode(data);
+            return;
+        }
+    }
+
     getVal(val) {
         let currentNode = this.root;
         while(currentNode) {
@@ -50,3 +57,10 @@ class rbTree {
         h.right.color = false;
     }
 }
+
+let myTree = new rbTree();
+
+myTree.insert("S");
+myTree.insert("E");
+
+console.log(myTree);
