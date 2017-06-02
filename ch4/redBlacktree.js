@@ -43,4 +43,10 @@ class rbTree {
         h.color = true;
         return x;
     }
+
+    flipColors(h){
+        h.color = true;
+        h.left.color = false;
+        h.right.color = false;
+    }
 }
