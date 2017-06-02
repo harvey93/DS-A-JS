@@ -3,6 +3,7 @@ class rbNode {
         this.data = data;
         this.left = null;
         this.right = null;
+        this.color = false;
     }
 }
 
@@ -23,5 +24,23 @@ class rbTree {
             }
         }
         return null;
+    }
+
+    rotateLeft(h){
+        let x = h.right;
+        h.right = x.left;
+        x.left = h;
+        x.color = h.color;
+        h.color = true;
+        return x;
+    }
+
+    rotateRight(h){
+        let x = h.left;
+        h.left = x.right;
+        x.right = h;
+        x.color = h.color;
+        h.color = true;
+        return x;
     }
 }
