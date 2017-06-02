@@ -16,6 +16,6 @@ const modDigitalRoot = num => {
 
 console.log(digitalRoot(18));
 
-console.log(modDigitalRoot(18));
+console.log(modDigitalRoot(17));
 
 
