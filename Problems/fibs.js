@@ -12,4 +12,21 @@ const fibs = num => {
     return res;
 };
 
-console.log(fibs(5));
+const fibsRec = num => {
+    if(num === 0) {
+        return [];
+    }
+    if(num === 1) {
+        return [0];
+    }
+    if(num === 2) {
+        return [0,1];
+    }
+    let prevFibs = fibsRec(num - 1);
+    let newFib = prevFibs[prevFibs.length - 1] + prevFibs[prevFibs.length - 2];
+    prevFibs.push(newFib);
+    return prevFibs;
+};
+
+// console.log(fibs(5));
+console.log(fibsRec(5));
