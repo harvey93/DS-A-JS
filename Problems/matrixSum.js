@@ -1,8 +1,10 @@
 const matrixSum = (matrix, topLeft, bottomRight) => {
     let sum = 0;
-    for(let i = topLeft[1]; i <= bottomRight[1]; i++){
-        sum += matrix[1][i];
-    }   
+    for(let j = topLeft[0]; j <= bottomRight[0]; j++) {
+        for(let i = topLeft[1]; i <= bottomRight[1]; i++){
+            sum += matrix[j][i];
+        }   
+    }
     return sum;
 };
 
@@ -14,4 +16,4 @@ let matrix =
     [13,14,15,16]
 ];
 // 54
-console.log(matrixSum(matrix, [1,1], [2,3]));
+console.log(matrixSum(matrix, [0,0], [3,3]));
