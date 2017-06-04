@@ -5,16 +5,16 @@ const orderedArr = (table, arr) => {
 }; 
 
 const inPlaceOA = (table, arr) => {
-    let counter = 0;
+    // let counter = 0;
     for(let i = 0; i < arr.length; i++) {
         let tableI = table[i];
         while (tableI < i) {
-            counter++;
+            // counter++;
             tableI = table[tableI];
         }
         exch(tableI, i, arr);
     }
-    console.log(counter);
+    // console.log(counter);
     return arr;
 };
 
