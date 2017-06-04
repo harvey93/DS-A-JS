@@ -26,6 +26,6 @@ const fibsTab = (n) => {
 
 };
 
-console.log(fibs(9));
-console.log(fibsMemo(9));
+// console.log(fibs(100));
+console.log(fibsMemo(200));
 console.log(fibsTab(9));
