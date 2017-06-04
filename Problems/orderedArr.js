@@ -5,20 +5,16 @@ const orderedArr = (table, arr) => {
 }; 
 
 const inPlaceOA = (table, arr) => {
+    let counter = 0;
     for(let i = 0; i < arr.length; i++) {
         let tableI = table[i];
         while (tableI < i) {
+            counter++;
             tableI = table[tableI];
         }
         exch(tableI, i, arr);
-        // if ( tableI >= i) {
-        //     exch(tableI, i, arr);
-        // } else {
-        //     while(tabl)
-
-        // }
-
     }
+    console.log(counter);
     return arr;
 };
 
@@ -29,14 +25,12 @@ const exch =(i, j, arr) => {
 };
 
 // let arr = ["a", "b", "c", "d", "e"];
-let order = [2,4,1,3,0];
+let order = [0,9,2,8,7,3,6,4,1,5];
 
 // Tests
 
-if (orderedArr(order, ["a", "b", "c", "d", "e"]) === inPlaceOA(order, ["a", "b", "c", "d", "e"])) {
-    console.log(true);
-} else {
-    console.log(inPlaceOA(order, ["a", "b", "c", "d", "e"]));
-    console.log(orderedArr(order, ["a", "b", "c", "d", "e"]));
-}
+
+console.log(inPlaceOA(order, ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j"]));
+console.log(orderedArr(order, ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j"]));
+
 
