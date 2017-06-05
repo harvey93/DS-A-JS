@@ -23,9 +23,17 @@ const fibsMemo = (n, map = new Map()) => {
 };
 
 const fibsTab = (n) => {
-
+    let map = new Map();
+    map.set(0,0);
+    map.set(1, 1);
+    for(let i = 2; i <= n; i++) {
+        let val1 = map.get(i - 1);
+        let val2 = map.get(i - 2);
+        map.set(i, val1 + val2);
+    }
+    return map.get(n);
 };
 
 // console.log(fibs(100));
 console.log(fibsMemo(200));
-console.log(fibsTab(9));
+console.log(fibsTab(200));

@@ -28,5 +28,5 @@ const fibsRec = num => {
     return prevFibs;
 };
 
-// console.log(fibs(5));
-console.log(fibsRec(5));
+// console.log(fibs(200));
+// console.log(fibsRec(200));
