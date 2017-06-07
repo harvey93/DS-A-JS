@@ -12,4 +12,4 @@ const canWin = (arr, i, seen = new Set()) => {
     return false;
 };
 
-console.log(canWin([1,1,1], 0));
+console.log(canWin([1,1,1,4,2,1,0], 0));
