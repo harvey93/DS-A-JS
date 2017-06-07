@@ -34,6 +34,6 @@ const fibsTab = (n) => {
     return map.get(n);
 };
 
-// console.log(fibs(100));
+// console.log(fibs(50));
 console.log(fibsMemo(100));
-console.log(fibsTab(100));
+// console.log(fibsTab(100));
