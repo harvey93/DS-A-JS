@@ -15,8 +15,8 @@ class MinMaxStackQueue {
             while(!this.pushStack.isEmpty()) {
                 this.popStack.insert(this.pushStack.remove().val);
             }
-            return this.popStack.remove();
         }
+        return this.popStack.remove();
     }
 
     getMin(){
@@ -74,14 +74,15 @@ class MinMaxStackQueue {
 }
 
 let queue = new MinMaxStackQueue();
-queue.insert(3);
-queue.insert(1);
+queue.insert(-5);
+queue.insert(-4);
 queue.insert(4);
 queue.insert(0);
 queue.insert(6);
-// queue.remove();
-queue.insert(-1);
+queue.remove();
+// queue.insert(-1);
 queue.remove();
 
 console.log(queue.getMin());
+// console.log(queue);
 // queue.getMin();
