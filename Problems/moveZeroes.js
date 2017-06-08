@@ -8,7 +8,7 @@ const moveZeroes = arr => {
         while(arr[j] === 0) {
             j--;
         }
-        if(i > j) {
+        if(i >= j) {
             break;
         }
         exch(arr, i, j);
