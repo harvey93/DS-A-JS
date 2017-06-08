@@ -1,4 +1,4 @@
-class minMaxStack {
+class MinMaxStack {
     constructor(){
         this.max = null;
         this.min = null;
@@ -26,12 +26,14 @@ class minMaxStack {
     }
 }
 
-let stack = new minMaxStack();
-stack.insert(1);
-stack.insert(4);
-stack.remove();
-stack.insert(2);
-stack.insert(10);
-stack.remove();
-stack.insert(0);
-console.log(stack);
+// let stack = new MinMaxStack();
+// stack.insert(1);
+// stack.insert(4);
+// stack.remove();
+// stack.insert(2);
+// stack.insert(10);
+// stack.remove();
+// stack.insert(0);
+// console.log(stack);
+
+module.exports = MinMaxStack;
