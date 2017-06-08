@@ -45,6 +45,32 @@ class MinMaxStackQueue {
             return null;
         }
     }
+
+    getMax(){
+        let max1 = null;
+        let max2 = null;
+        if(!this.pushStack.isEmpty()){
+            max1 = this.pushStack.max;
+        }
+        if(!this.popStack.isEmpty()){
+            max2 = this.popStack.max;
+        }
+        // console.log(max1);
+        // console.log(max2);
+
+        if(max1 !== null && max2 !== null) {
+            // console.log('both');
+            return max1 > max2 ? max1 : max2;
+        } else if (max1 !== null) {
+            // console.log('1');
+            return max1;
+        } else if (max2 !== null) {
+            // console.log('2');
+            return max2;
+        } else {
+            // console.log('none');
+            return null;
+        }    }
 }
 
 let queue = new MinMaxStackQueue();
@@ -54,8 +80,8 @@ queue.insert(4);
 queue.insert(0);
 queue.insert(6);
 // queue.remove();
-queue.insert(10);
-// queue.remove();
+queue.insert(-1);
+queue.remove();
 
 console.log(queue.getMin());
 // queue.getMin();
