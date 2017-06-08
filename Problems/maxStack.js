@@ -13,11 +13,11 @@ class maxStack {
 
     remove(){
         this.store.pop();
-        this.max = this.peek.max;
+        this.max = this.peek().max;
     }
 
     peek(){
-        this.store[this.store.length - 1];
+        return this.store[this.store.length - 1];
     }
         
 }
