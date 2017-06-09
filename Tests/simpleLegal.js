@@ -1,7 +1,8 @@
 // A cat function or 'class' in other languages with the attributes of name,
 // age, friends and id. This function takes name, age and friends as args and assigns
-// them to when a new Cat is created
+// them when a new Cat is created
 
+// token will be a random whole number between 0 and 999
 var Cat = function(name, age, friends) {
    var token = Math.floor(Math.random()*1000);
    this.name = name;
@@ -20,26 +21,26 @@ Cat.prototype.greet = function(friend) {
 };
 
 // greetFriends saved to the Cat prototype that every Cat will be able to call
-// This function will iterative over the friends array and call the greet function for each friends
-// HOWEVER this will result in an error, because the context for every iteration of the forEach function
-// and this refers to the inner function rather than Cat.
+// This function will iterate over the friends array and call the greet function for each friend
+// HOWEVER this will result in an error, because the context will change for every iteration of the forEach function
+// because 'this' will refer to the inner function rather than Cat.
 
-Cat.prototype.greetFriends = function() {
-   this.friends.forEach(function(friend) {
-       this.greet(friend);
-   });
-};
+// Cat.prototype.greetFriends = function() {
+//    this.friends.forEach(function(friend) {
+//        this.greet(friend);
+//    });
+// };
 
 // HERE ARE SOME ALTERNATIVES
 
 // One option is to save the context of Cat and use it in the inner function. However there is a better way below.
 
-// Cat.prototype.greetFriends = function() {
-//     var that = this;
-//    this.friends.forEach(function(friend) {
-//        that.greet(friend);
-//    });
-// };
+Cat.prototype.greetFriends = function() {
+    var that = this;
+   this.friends.forEach(function(friend) {
+       that.greet(friend);
+   });
+};
 
 // Using an ES6 fat arrow function, which does not change the context to the new function that is 
 // inside of the forEach. The this we call inside of a fat arrow function is the same this that is 
@@ -58,11 +59,14 @@ var bill = new Cat("Bill", 4, []);
 var theo = new Cat("Theo", 5, [lisa, bill]);
 
 
-// Print theo's name
+// Print 'Theo'
 console.log(theo.name);
 
-// Print theo's token
+// Print undefined, because token was not saved as an instance variable.
+// If we wanted to give the ability to print token we could save it like
+// the other attributes by saving a this.token in the Cat function
 console.log(theo.token);
 
 // Invoke the greetFriends method on theo
+// Will print greet(lisa) and greet(bill)
 theo.greetFriends();
