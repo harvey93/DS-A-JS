@@ -33,12 +33,7 @@
 // // self.from_vertex.out_edges.delete(self)
 // // self.from_vertex = nil
 
-class Vertex {
-  constructor(label) {
-    this.label = label;
-    this.wasVisited = false;
-  }
-}
+const Vertex = require("./Vertex.js");
 
 
 class Graph {
@@ -198,31 +193,33 @@ class Graph {
   }
 }
 
-
-let node1 = new Vertex("A");
-let node2 = new Vertex("B");
-let node3 = new Vertex("C");
-
-let node4 = new Vertex("D");
-let node5 = new Vertex("E");
-let node6 = new Vertex("F");
-
-let node7 = new Vertex("G");
-let node8 = new Vertex("H");
-let node9 = new Vertex("I");
-
-let graph = new Graph();
+module.exports = Graph;
 
 
+// let node1 = new Vertex("A");
+// let node2 = new Vertex("B");
+// let node3 = new Vertex("C");
 
-graph.addVertex(node1);
-graph.addVertex(node2);
-graph.addVertex(node3);
-graph.addVertex(node4);
-graph.addVertex(node5);
-graph.addVertex(node6);
-graph.addVertex(node7);
-graph.addVertex(node8);
+// let node4 = new Vertex("D");
+// let node5 = new Vertex("E");
+// let node6 = new Vertex("F");
+
+// let node7 = new Vertex("G");
+// let node8 = new Vertex("H");
+// let node9 = new Vertex("I");
+
+// let graph = new Graph();
+
+
+
+// graph.addVertex(node1);
+// graph.addVertex(node2);
+// graph.addVertex(node3);
+// graph.addVertex(node4);
+// graph.addVertex(node5);
+// graph.addVertex(node6);
+// graph.addVertex(node7);
+// graph.addVertex(node8);
 // graph.addVertex(node9);
 
 
@@ -241,22 +238,22 @@ graph.addVertex(node8);
 //
 // graph.addEdge(node7, node8); //G -> H
 
-graph.addEdge(node4, node1); //A -> D
-graph.addEdge(node5, node1); //A -> E
+// graph.addEdge(node4, node1); //A -> D
+// graph.addEdge(node5, node1); //A -> E
 
-graph.addEdge(node5, node2); //B -> E
+// graph.addEdge(node5, node2); //B -> E
 
-graph.addEdge(node6, node3); //C -> F
+// graph.addEdge(node6, node3); //C -> F
 
-graph.addEdge(node7, node4); //D -> G
+// graph.addEdge(node7, node4); //D -> G
 
-graph.addEdge(node7, node5); //E -> G
+// graph.addEdge(node7, node5); //E -> G
 
-graph.addEdge(node8, node6); //F -> H
+// graph.addEdge(node8, node6); //F -> H
 
-graph.addEdge(node8, node7); //G -> H
+// graph.addEdge(node8, node7); //G -> H
 
-graph.topoSort();
+// graph.topoSort();
 // graph.addEdge(node1, node2); //A -> B
 // graph.addEdge(node1, node3); //A -> C
 // graph.addEdge(node1, node4); //A -> D
