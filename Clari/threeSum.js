@@ -1,3 +1,4 @@
+// n^2 solution
 const threeSum = arr => {
     let set = new Set();
     let res = [];
