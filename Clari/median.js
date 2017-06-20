@@ -2,7 +2,7 @@
 const median = arr => {
     let mid = Math.floor(arr.length/ 2);
     if(arr.length % 2 === 0 ) {
-        return (arr[mid] + arr[mid - 1]) / 2;
+        return (arr.sort()[mid] + arr.sort()[mid - 1]) / 2;
     } else {
         return arr.sort()[mid];
     }
@@ -14,7 +14,8 @@ const quickMedian = arr => {
     let mid = Math.floor(arr.length/ 2);
     // console.log(arr.length % 2);
     if(arr.length % 2 === 0 ) {
-        return true;
+        // return (quickSelect(arr, mid) + quickSelect(arr, mid - 1)) / 2;
+        return (quickSelect(arr, mid) + quickSelect(arr, mid - 1)) / 2;
     } else {
         return quickSelect(arr, mid);
     }
@@ -35,7 +36,7 @@ const quickSelect = (arr, k) => {
         }
     }
     // console.log(arr);
-    // return arr;
+    return arr[k];
 };
 
 const partition = (arr, lo, hi) => {
@@ -78,9 +79,12 @@ const shuffle = arr => {
     }
 };
 
-let arr = [1,2,3,4,5,6,7,123,12,13];
+// let arr = [1,2,3,4,5,6,7,123,12,13,14,125];
+let arr = [33,21,343,12,34,44,0,78];
 // shuffle(arr);
 // console.log(arr);
 
-// console.log(median(arr));
+
 console.log(quickMedian(arr));
+// console.log(quickMedian([1,2,3,4]));
+console.log(median(arr));
