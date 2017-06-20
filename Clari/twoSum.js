@@ -18,15 +18,12 @@ const twoSum = arr => {
 
 // n solution
 const fastTwoSum = arr => {
-    // let set = new Set();
     let hash = {};
     let res = [];
     for(let i = 0; i < arr.length; i++) {
         if (hash[0 - arr[i]]){
             res.push([hash[0 - arr[i]], i]);
-            // console.log('in');
         } 
-        // console.log(hash[0 - arr[i]]);
         hash[arr[i]] = i;
     }
     return res;
