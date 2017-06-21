@@ -40,7 +40,7 @@ class Cache {
             let newNext = oldNext.next;
             head.next = newNext;
             newNext.back = head;
-
+            delete this.map[`${oldNext.data}`];
         }
     }
 
@@ -74,4 +74,5 @@ cache.insert(15);
 cache.insert(18);
 cache.insert(25);
 cache.insert(15);
-console.log(cache.list.root.next);
+// console.log(cache.list.root.next);
+console.log(cache.map);
