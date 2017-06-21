@@ -44,7 +44,6 @@ class Cache {
     }
 
     update(val){
-        // return console.log(val);
         let currentNode = this.map[val];
         currentNode.back.next = currentNode.next;
         currentNode.next.back = currentNode.back;
