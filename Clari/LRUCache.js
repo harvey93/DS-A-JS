@@ -20,14 +20,28 @@ class Cache {
         this.max = max;
     }
 
-    insert() {
-        return this.map.length();
+    insert(val) {
+        if(this.map[val]) {
+            // return true;
+            this.update(val);
+        } else {
+            // return false;
+            this.add(val);
+        }
     }
 
+    add() {
+
+    }
+
+    update(){
+
+    }
+    
     mapSize() {
         return Object.keys(this.map).length;
     }
 }
 
 let cache = new Cache(3);
-console.log(cache);
+console.log(cache.insert());
