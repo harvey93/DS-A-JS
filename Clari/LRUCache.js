@@ -34,12 +34,13 @@ class Cache {
     }
 
     eject(){
-        if(this.mapSize() === this.max) {
-            let tail = this.list.tail;
-            let oldPrev = tail.back;
-            let newPrev = oldPrev.back;
-            newPrev.next = tail;
-            tail.back = newPrev;
+        if(this.mapSize() >= this.max) {
+            let head = this.list.root;
+            let oldNext = head.next;
+            let newNext = oldNext.next;
+            head.next = newNext;
+            newNext.back = head;
+
         }
     }
 
@@ -76,4 +77,6 @@ cache.insert(10);
 cache.insert(12);
 cache.insert(15);
 cache.insert(18);
+cache.insert(25);
+// cache.insert(15);
 console.log(cache.list.root.next);
