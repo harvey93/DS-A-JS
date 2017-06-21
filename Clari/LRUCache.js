@@ -28,7 +28,14 @@ class Cache {
             this.update(val);
         } else {
             // return false;
+            this.eject();
             this.add(val);
+        }
+    }
+
+    eject(){
+        if(this.mapSize() === this.max) {
+            
         }
     }
 
@@ -63,5 +70,6 @@ class Cache {
 let cache = new Cache(3);
 cache.insert(10);
 cache.insert(12);
-cache.insert(12);
-console.log(cache);
+cache.insert(15);
+cache.insert(18);
+// console.log(cache);
