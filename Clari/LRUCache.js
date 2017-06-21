@@ -10,6 +10,8 @@ class LinkedList {
     constructor() {
         this.root = new Node('root');
         this.tail = new Node('tail');
+        this.root.next = this.tail;
+        this.tail.back = this.root;
     }
 }
 
@@ -30,18 +32,26 @@ class Cache {
         }
     }
 
-    add() {
+    add(val) {
+        let newNode = new Node(val);
+        this.map[val] = newNode;
+        let tail = this.list.tail;
+        let oldPrev = tail.back;
+        oldPrev.next = newNode;
+        newNode.back = oldPrev;
+        newNode.next = tail;
+        tail.back = newNode;
+    }
+
+    update(val){
 
     }
 
-    update(){
-
-    }
-    
     mapSize() {
         return Object.keys(this.map).length;
     }
 }
 
 let cache = new Cache(3);
-console.log(cache.insert());
+cache.insert(10);
+console.log(cache.map);
