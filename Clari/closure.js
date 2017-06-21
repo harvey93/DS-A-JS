@@ -2,15 +2,26 @@
 let map = {};
 
 const counter = letter => {
-    if(map[letter]){
-        map[letter]++;
-    } else {
-        map[letter] = 1;
-    }  
-    console.log(`${letter}${map[letter]}`);
+    return () => {
+        if(map[letter]){
+            map[letter]++;
+        } else {
+            map[letter] = 1;
+        }  
+        console.log(`${letter}${map[letter]}`);
+    };
 };
 
+let counterG = counter('G');
+let counterG2 = counter('G');
+let counterG3 = counter('G');
 
-counter('G');
-counter('G');
-counter('H');
+let counterH = counter('H');
+let counterH2 = counter('H');
+
+counterG();
+counterG2();
+counterG3();
+
+counterH();
+counterH2();
