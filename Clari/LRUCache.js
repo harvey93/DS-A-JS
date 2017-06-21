@@ -67,12 +67,12 @@ class Cache {
     }
 }
 
-let cache = new Cache(3);
-cache.insert(10);
-cache.insert(12);
-cache.insert(15);
-cache.insert(18);
-cache.insert(25);
-cache.insert(15);
-// console.log(cache.list.root.next);
-console.log(cache.map);
+// let cache = new Cache(3);
+// cache.insert(10);
+// cache.insert(12);
+// cache.insert(15);
+// cache.insert(18);
+// cache.insert(25);
+// cache.insert(15);
+// // console.log(cache.list.root.next);
+// console.log(cache.map);
