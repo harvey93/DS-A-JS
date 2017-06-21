@@ -60,12 +60,6 @@ class Cache {
         currentNode.back.next = currentNode.next;
         currentNode.next.back = currentNode.back;
         this.add(val);
-        // let head = this.list.root;
-        // let oldNext = head.next;
-        // head.next = currentNode;
-        // currentNode.back = head;
-        // currentNode.next = oldNext;
-        // oldNext.back = currentNode;
     }
 
     mapSize() {
