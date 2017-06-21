@@ -44,7 +44,16 @@ class Cache {
     }
 
     update(val){
-
+        // return console.log(val);
+        let currentNode = this.map[val];
+        currentNode.back.next = currentNode.next;
+        currentNode.next.back = currentNode.back;
+        let head = this.list.root;
+        let oldNext = head.next;
+        head.next = currentNode;
+        currentNode.back = head;
+        currentNode.next = oldNext;
+        oldNext.back = currentNode;
     }
 
     mapSize() {
@@ -54,4 +63,6 @@ class Cache {
 
 let cache = new Cache(3);
 cache.insert(10);
-console.log(cache.map);
+cache.insert(12);
+cache.insert(12);
+console.log(cache);
