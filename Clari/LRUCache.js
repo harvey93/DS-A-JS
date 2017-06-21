@@ -19,7 +19,15 @@ class Cache {
         this.list = new LinkedList();
         this.max = max;
     }
+
+    insert() {
+        return this.map.length();
+    }
+
+    mapSize() {
+        return Object.keys(this.map).length;
+    }
 }
 
-let cache = new Cache();
+let cache = new Cache(3);
 console.log(cache);
