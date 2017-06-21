@@ -1,16 +1,20 @@
 
-let map = {};
-
-const counter = letter => {
-    return () => {
-        if(map[letter]){
-            map[letter]++;
-        } else {
-            map[letter] = 1;
-        }  
-        console.log(`${letter}${map[letter]}`);
+const preCounter = () => {
+    let map = {};
+    const _counter = letter => {
+        return () => {
+            if(map[letter]){
+                map[letter]++;
+            } else {
+                map[letter] = 1;
+            }  
+            console.log(`${letter}${map[letter]}`);
+        };
     };
+    return _counter;  
 };
+
+let counter = preCounter();
 
 let counterG = counter('G');
 let counterG2 = counter('G');
