@@ -7,3 +7,9 @@ const factorialRec = num => {
 };
 
 console.log(factorialRec(5));
+
+const factorialIter = num => {
+
+};
+
+console.log(factorialIter(5));
