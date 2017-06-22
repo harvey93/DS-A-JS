@@ -4,4 +4,25 @@ const avg = (...n) => {
     return total/n.length;
 };
 
-console.log(avg(1,5,3,10));
+const spiceUp = function(fn, ...n) {
+    return function(...m) {
+        return fn.apply(this, n.concat(m));
+        // return fn(...n.concat(m));
+    };
+};
+
+const spiceUp2 = (fn, ...n) => {
+    return (...m) => {
+        return fn(...n.concat(m));
+        // return fn.apply(this, n.concat(m));
+        // console.log(n.concat(m));
+    };
+    // console.log(fn);
+    // return fn.apply(this, n);
+    
+};
+
+let doAvg = spiceUp(avg, 1,5,15);
+
+console.log(doAvg(4,5,6));
+// console.log(doAvg);
