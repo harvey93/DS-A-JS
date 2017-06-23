@@ -6,7 +6,7 @@ const factorialRec = num => {
     return num * factorialRec(num - 1);
 };
 
-console.log(factorialRec(4));
+// console.log(factorialRec(4));
 
 const factorialIter = num => {
     let total = 1;
@@ -17,10 +17,11 @@ const factorialIter = num => {
     return total;
 };
 
-console.log(factorialIter(4));
 
-const factorialMemo = (num, memo) => {
 
-};
+// const factorialTail = (num, prod = 1) => {
 
-console.log(factorialMemo(5));
+// };
+
+// console.log(factorialMemo(5));
+// console.log(factorialRec(100));
